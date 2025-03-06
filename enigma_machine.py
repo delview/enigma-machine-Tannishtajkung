@@ -47,12 +47,29 @@ def atbash_decrypt(): # Function that decrypt the message
     print("")
     return
 
+def help(): # Will explain the user what the Atbash Cipher is 
+    print("")
+
+
 
 # Greet the user and explain them what this program does
-print("Hey user!")
+print(f"\nHey user!")
 print("Welcome to the Atbash Cipher enigma machine!")
-print("This program will either encrypt or decrypt a message in the Atbash Cipher")
-print("Let's get started!")
+print("This program will either encrypt or decrypt a message in the Atbash Cipher.")
+print("Don't know what an Atbash Cipher is?")
+while True:  
+    help = input("[Press H] for a detailed explanation or [Press X] if you already know:  ").title().strip()
+    if help in ['H', 'X']:
+        break
+    else:
+        print("Invalid! Enter either [H]elp or [X] to cancel.")
+        continue
+
+if help == "H":
+    help()
+    
+if help == "X":
+    print("Let's get started!")
 
 while True:
     # Ask the user whether they want to decrypt or encrypt a message
