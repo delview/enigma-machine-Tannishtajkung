@@ -5,46 +5,52 @@ A program that will encyrpt or decrypt a message using the Atbash Cipher techniq
 
 import string
 # Cipher technique used
-def atbash(s):
-    new_string = ""
-    lower_case = string.ascii_lowercase[0:]
-    reverse_string = lower_case[::-1]
-    for i in s:
-        if i == "" or i == "." or i == ",":
-            new_string+=i
-        elif i.isdigit():
-            new_string+=i
-        elif i in ["$", "^", "!", "*", "'", '"']:
-            new_string+=i
-    for j in range(len(lower_case)):
-        if i == lower_case[j] or i == lower_case[j].upper():
-            if i == i.upper():
-                i = reverse_string[j].upper()
-                new_string+=i
-            else:
-                i = reverse_string[j]
-                new_string+=i
-            break
+def atbash_encrypt():
+    message_input = input("Enter a message that you want to encyrpt: ").strip().upper()
+    ciphertext = ""
+    for letter in message_input:
+        ascii = ord(letter)
+        if ascii>=65 and ascii<=90:
+            position = ascii - 65
+            newPosition = 25 - position
+            newAscii = newPosition + 65
+            newLetter = chr(newAscii)
+        else:
+            newLetter = letter
+        ciphertext = ciphertext + newLetter
 
-    text_input = input("Enter any text you want:  ")
-    text= "'''" + text_input + "'''"
-    for x in text.split(" "):
-        mirror_text = atbash(x)
-        cipher_text = mirror_text.replace("'''", "")
-        print(cipher_text, end = " ")
-        return new_string
+    print(f"\nYour message: {message_input}")
+    print("The encrypted message is:")
+    print(ciphertext)
 
+def atbash_decrypt():
+    message_input = input("Enter a message that you want to decrypt: ").strip().upper()
+    ciphertext = ""
+    for letter in message_input:
+        ascii = ord(letter)
+        if ascii>=65 and ascii<=90:
+            position = ascii - 65
+            newPosition = 25 - position
+            newAscii = newPosition + 65
+            newLetter = chr(newAscii)
+        else:
+            newLetter = letter
+        ciphertext = ciphertext + newLetter
+
+    print(f"\nYour message: {message_input}")
+    print("The encrypted message is:")
+    print(ciphertext)
 
 
 # Greet the user and explain them what this program does
 print("Hey user!")
 print("Welcome to the Atbash Cipher enigma machine!")
 print("This program will either encrypt or decrypt a message in the Atbash Cipher")
-print(f"Let's get started!\n")
+print("Let's get started!")
 
 # Ask the user whether they want to decrypt or encrypt a message
 while True:
-    ask = input(f"Do you want to encrypt or decrypt a message?: [e/d]:  \n").lower().strip()
+    ask = input(f"\nDo you want to encrypt or decrypt a message?: [e/d]:  ").lower().strip()
     if ask in ['e', 'd']:
         break
     else:
@@ -52,7 +58,10 @@ while True:
         continue
 
 if ask == "e":
-    atbash(s)
+    atbash_encrypt()
+
+elif ask == "d":
+    atbash_decrypt()
 
 
 
