@@ -18,9 +18,9 @@ def atbash_encrypt(): # Function that encrypts the message
             newLetter = letter
         ciphertext = ciphertext + newLetter
 
-    print(f"\nThe message you entered:")
+    print(f"\nThe message you entered:") # The original message
     print(f"{message_input}")
-    print(f"\nThe encrypted message is:")
+    print(f"\nThe encrypted message is:") # The new message
     print(ciphertext)
     print("")
     return
@@ -39,15 +39,15 @@ def atbash_decrypt(): # Function that decrypt the message
             newLetter = letter
         ciphertext = ciphertext + newLetter
 
-    print(f"\nThe message you entered:")
+    print(f"\nThe message you entered:") # The original message
     print(f"{message_input}")
-    print("The decrypted message is:")
+    print("The decrypted message is:") # The new message
     print(ciphertext)
     print("")
     return
 
-def help(): # Will explain the user what the Atbash Cipher is 
-    print("The Atbash Cipher is a very old Substitution Cipher that was originally developed for use with the Hebrew alphabet.")
+def help_cipher(): # Will explain the user what the Atbash Cipher is 
+    print(f"\nThe Atbash Cipher is a very old Substitution Cipher that was originally developed for use with the Hebrew alphabet.")
     print("In fact, in the Book of Jeremiah there are several words that have been enciphered using the Atbash Cipher.")
     print("It is generally considered one of the easiest ciphers to use as it follows a very simple substitution method.")
     print("The first letter of the alphabet is replaced with the last letter, the second letter is replaced with the second from last, and so on.")
@@ -60,7 +60,7 @@ print("Welcome to the Atbash Cipher enigma machine!")
 print("This program will either encrypt or decrypt a message in the Atbash Cipher.")
 print(f"\nDon't know what an Atbash Cipher is?")
 while True:  
-    help = input("[Press h] for a detailed explanation or [Press x] if you already know:  ").lower().strip()
+    help = input("[Press h] for a detailed explanation or [Press x] if you already know:  ").lower().strip() # Ask if they need help 
     if help in ['h', 'x']:
         break
     else:
@@ -68,15 +68,15 @@ while True:
         continue
 
 if help == "h":
-    help()
+    help_cipher() # Will call the function that explains the user what the Atbash Cipher does
     
 if help == "x":
-    print("Let's get started!")
+    print(f"Let's get started!\n")
 
 while True:
     # Ask the user whether they want to decrypt or encrypt a message
     while True:
-        ask = input(f"\nDo you want to encrypt or decrypt a message?: [e/d]:  ").lower().strip()
+        ask = input(f"Do you want to encrypt or decrypt a message?: [e/d]:  ").lower().strip()
         if ask in ['e', 'd']:
             break
         else:
@@ -84,10 +84,10 @@ while True:
             continue
 
     if ask == "e":
-        atbash_encrypt()
+        atbash_encrypt() # Will call the encrypt function
 
     elif ask == "d":
-        atbash_decrypt()
+        atbash_decrypt() # Will call the decrypt function
 
 
     # Ask if they want to do another encryption or decryption
@@ -96,7 +96,7 @@ while True:
         if choice in ['y', 'n']:
             break
         else:
-            print("Invalid! Enter either [y]es or [n]o.")
+            print(f"Invalid! Enter either [y]es or [n]o.\n")
             continue
 
     if choice == "n":
