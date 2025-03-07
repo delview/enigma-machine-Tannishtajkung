@@ -4,7 +4,6 @@ A program that will encyrpt or decrypt a message using the Atbash Cipher techniq
 """
 
 # Cipher technique used
-
 def atbash_encrypt(): # Function that encrypts the message
     message_input = input("Enter a message that you want to encyrpt: ").strip().upper()
     ciphertext = ""
@@ -48,27 +47,30 @@ def atbash_decrypt(): # Function that decrypt the message
     return
 
 def help(): # Will explain the user what the Atbash Cipher is 
-    print("")
-
-
+    print("The Atbash Cipher is a very old Substitution Cipher that was originally developed for use with the Hebrew alphabet.")
+    print("In fact, in the Book of Jeremiah there are several words that have been enciphered using the Atbash Cipher.")
+    print("It is generally considered one of the easiest ciphers to use as it follows a very simple substitution method.")
+    print("The first letter of the alphabet is replaced with the last letter, the second letter is replaced with the second from last, and so on.")
+    print("So the first letter (A) becomes the last letter (Z), and the second letter (B) becomes the second to last letter (Y), and so on.")
+    return
 
 # Greet the user and explain them what this program does
 print(f"\nHey user!")
 print("Welcome to the Atbash Cipher enigma machine!")
 print("This program will either encrypt or decrypt a message in the Atbash Cipher.")
-print("Don't know what an Atbash Cipher is?")
+print(f"\nDon't know what an Atbash Cipher is?")
 while True:  
-    help = input("[Press H] for a detailed explanation or [Press X] if you already know:  ").title().strip()
-    if help in ['H', 'X']:
+    help = input("[Press h] for a detailed explanation or [Press x] if you already know:  ").lower().strip()
+    if help in ['h', 'x']:
         break
     else:
-        print("Invalid! Enter either [H]elp or [X] to cancel.")
+        print(f"Invalid! Enter either [h]elp or [x] to cancel.\n")
         continue
 
-if help == "H":
+if help == "h":
     help()
     
-if help == "X":
+if help == "x":
     print("Let's get started!")
 
 while True:
@@ -78,7 +80,7 @@ while True:
         if ask in ['e', 'd']:
             break
         else:
-            print("Invalid! Enter either [e]ncrypt or [d]ecrypt.")
+            print(f"Invalid! Enter either [e]ncrypt or [d]ecrypt.\n")
             continue
 
     if ask == "e":
@@ -105,3 +107,4 @@ while True:
 
 # Goodbye
 print("Thanks for using the Atbash Cipher enigma machine. See you soon!")
+print("")
