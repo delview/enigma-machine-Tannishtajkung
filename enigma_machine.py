@@ -30,10 +30,10 @@ def atbash_decrypt(): # Function that decrypt the message
     ciphertext = ""
     for letter in message_input:
         ascii = ord(letter)
-        if ascii>=90 and ascii<=65:
-            position = ascii - 90
-            newPosition = -25 - position
-            newAscii = newPosition + 90
+        if ascii>=65 and ascii<=90:
+            position = ascii - 65
+            newPosition = 25 - position
+            newAscii = newPosition + 65
             newLetter = chr(newAscii)
         else:
             newLetter = letter
@@ -41,7 +41,7 @@ def atbash_decrypt(): # Function that decrypt the message
 
     print(f"\nThe message you entered:") # The original message
     print(f"{message_input}")
-    print("The decrypted message is:") # The new message
+    print(f"\nThe decrypted message is:") # The new message
     print(ciphertext)
     print("")
     return
@@ -52,6 +52,7 @@ def help_cipher(): # Will explain the user what the Atbash Cipher is
     print("It is generally considered one of the easiest ciphers to use as it follows a very simple substitution method.")
     print("The first letter of the alphabet is replaced with the last letter, the second letter is replaced with the second from last, and so on.")
     print("So the first letter (A) becomes the last letter (Z), and the second letter (B) becomes the second to last letter (Y), and so on.")
+    print("")
     return
 
 # Greet the user and explain them what this program does
@@ -99,11 +100,11 @@ while True:
             print(f"Invalid! Enter either [y]es or [n]o.\n")
             continue
 
-    if choice == "n":
+    if choice == "n": # Will take the user to the goodbye message
         break
 
-    if choice == "y":
-        print("YEAH! Let's do another encryption/ decryption of a message.")
+    if choice == "y": # Will loop through the code again
+        print(f"YEAH! Let's do this!.\n")
 
 # Goodbye
 print("Thanks for using the Atbash Cipher enigma machine. See you soon!")
