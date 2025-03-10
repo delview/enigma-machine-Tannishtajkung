@@ -9,10 +9,10 @@ def atbash_encrypt(): # Function that encrypts the message
     ciphertext = ""
     for letter in message_input:
         ascii = ord(letter)
-        if ascii>=65 and ascii<=90:
-            position = ascii - 65
-            newPosition = 25 - position
-            newAscii = newPosition + 65
+        if ascii>=65 and ascii<=90: # A is 0, Z is 25, and so on
+            position = ascii - 65 # Makes it 0
+            newPosition = 25 - position # Plain text
+            newAscii = newPosition + 65 # Encrypting it
             newLetter = chr(newAscii)
         else:
             newLetter = letter
@@ -30,10 +30,10 @@ def atbash_decrypt(): # Function that decrypt the message
     ciphertext = ""
     for letter in message_input:
         ascii = ord(letter)
-        if ascii>=65 and ascii<=90:
-            position = ascii - 65
-            newPosition = 25 - position
-            newAscii = newPosition + 65
+        if ascii>=65 and ascii<=90: # A is 0, Z is 25, and so on
+            position = ascii - 65 # Makes it 0
+            newPosition = 25 - position # Plain text
+            newAscii = newPosition + 65 # Encrypting it
             newLetter = chr(newAscii)
         else:
             newLetter = letter
