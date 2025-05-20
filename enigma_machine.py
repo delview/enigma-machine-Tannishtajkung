@@ -31,48 +31,23 @@ atbash_dict = {
     'Y': 'B',
     'Z': 'A'
 }
-# Cipher technique used
-def atbash_encrypt(): # Function that encrypts the message
-    message_input = input("Enter a message that you want to encyrpt: ").strip().upper()
-    ciphertext = ""
+
+def atbash_cipher(): # Function that encrypts or decrypt the message
+    result = ""
+    message_input = input("Enter your message: ").strip().upper()
     for letter in message_input:
-        ascii = ord(letter)
-        if ascii>=65 and ascii<=90: # A is 0, Z is 25, and so on
-            position = ascii - 65 # Makes it 0
-            newPosition = 25 - position # Plain text
-            newAscii = newPosition + 65 # Encrypting it
-            newLetter = chr(newAscii)
+        if letter in atbash_dict:
+            result += atbash_dict[letter] # Replace using the dictionary
         else:
-            newLetter = letter
-        ciphertext = ciphertext + newLetter
-
-    print(f"\nThe message you entered:") # The original message
-    print(f"{message_input}")
-    print(f"\nThe encrypted message is:") # The new message
-    print(ciphertext)
-    print("")
-    return
-
-def atbash_decrypt(): # Function that decrypt the message
-    message_input = input("Enter a message that you want to decrypt: ").strip().upper()
-    ciphertext = ""
-    for letter in message_input:
-        ascii = ord(letter)
-        if ascii>=65 and ascii<=90: # A is 0, Z is 25, and so on
-            position = ascii - 65 # Makes it 0
-            newPosition = 25 - position # Plain text
-            newAscii = newPosition + 65 # Encrypting it
-            newLetter = chr(newAscii)
-        else:
-            newLetter = letter
-        ciphertext = ciphertext + newLetter
-
+            result += letter
+ 
     print(f"\nThe message you entered:") # The original message
     print(f"{message_input}")
     print(f"\nThe decrypted message is:") # The new message
-    print(ciphertext)
+    print(result)
     print("")
     return
+   
 
 def help_cipher(): # Will explain the user what the Atbash Cipher is 
     print(f"\nThe Atbash Cipher is a very old Substitution Cipher that was originally developed for use with the Hebrew alphabet.")
@@ -112,12 +87,8 @@ while True:
             print(f"Invalid! Enter either [e]ncrypt or [d]ecrypt.\n")
             continue
 
-    if ask == "e":
-        atbash_encrypt() # Will call the encrypt function
-
-    elif ask == "d":
-        atbash_decrypt() # Will call the decrypt function
-
+    # Call atbash_cipher function
+    atbash_cipher()
 
     # Ask if they want to do another encryption or decryption
     while True:
